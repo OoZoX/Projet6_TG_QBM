@@ -23,7 +23,6 @@ public class input_click : MonoBehaviour
             _Pos_souri = camera.ScreenToWorldPoint(Input.mousePosition);
 
             Debug.Log(_Pos_souri);
-            
 
         }
     }
