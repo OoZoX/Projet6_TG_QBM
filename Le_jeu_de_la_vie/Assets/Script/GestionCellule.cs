@@ -8,7 +8,8 @@ public class GestionCellule : MonoBehaviour
     private int _ColX;
     private int _ColY;
     private int _Compt_cellule;
-    public GameObject[,] _CelluleTemp;
+    public bool[,] _CelluleTemp;
+    [SerializeField] private int vitesse = 30;
 
     public bool start = false;
     // Start is called before the first frame update
@@ -16,7 +17,7 @@ public class GestionCellule : MonoBehaviour
     {
         _ColX = CreateMap.Instance._ColX;
         _ColY = CreateMap.Instance._ColY;
-        _CelluleTemp = new GameObject[_ColX, _ColY];
+        _CelluleTemp = new bool[_ColX, _ColY];
         
 
     }
@@ -26,7 +27,7 @@ public class GestionCellule : MonoBehaviour
     {
         if (start == true)
         {
-            Application.targetFrameRate = 2;
+            Application.targetFrameRate = vitesse;
 
             for (int x = 0; x < _ColX; x++)
             {
@@ -102,27 +103,47 @@ public class GestionCellule : MonoBehaviour
 
                     if (_Compt_cellule == 3)
                     {
-                        CreateMap.Instance._Grid[x, y].GetComponent<SpriteRenderer>().color = Color.white;
-                        _CelluleTemp[x, y] = CreateMap.Instance._Grid[x, y];
+                        _CelluleTemp[x, y] = true;
+                        
                     }
                     else if (_Compt_cellule < 2 || _Compt_cellule > 3)
                     {
-                        CreateMap.Instance._Grid[x, y].GetComponent<SpriteRenderer>().color = Color.black;
-                        _CelluleTemp[x, y] = CreateMap.Instance._Grid[x, y];
+                        _CelluleTemp[x, y] = false;
+                        
                     }
                     else
                     {
-                        _CelluleTemp[x, y] = CreateMap.Instance._Grid[x, y];
+                        if (CreateMap.Instance._Grid[x,y].GetComponent<SpriteRenderer>().color == Color.black)
+                        {
+                            _CelluleTemp[x, y] = false;
+                        }
+                        else
+                        {
+                            _CelluleTemp[x, y] = true;
+                        }
                     }
 
                 }
             }
-
-            CreateMap.Instance._Grid = _CelluleTemp;
+            for (int x = 0; x < _ColX; x++)
+            {
+                for (int y = 0; y < _ColY; y++)
+                {
+                    if (_CelluleTemp[x, y] == false)
+                    {
+                        CreateMap.Instance._Grid[x, y].GetComponent<SpriteRenderer>().color = Color.black;
+                    }
+                    else
+                    {
+                        CreateMap.Instance._Grid[x, y].GetComponent<SpriteRenderer>().color = Color.white;
+                    }
+                    
+                }
+            }
 
         }else 
         {
-            Application.targetFrameRate = 100;
+            Application.targetFrameRate = 300;
         }
     }
 }
