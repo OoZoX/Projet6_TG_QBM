@@ -8,13 +8,13 @@ public class CreateMap : MonoBehaviour
     public GameObject prefab;
 
     public GameObject[,] _Grid;
+    
+
+
+    [SerializeField] public int _ColX = 10;
+    [SerializeField] public int _ColY = 10;
+
     public static CreateMap Instance;
-
-
-    [SerializeField] private int _ColX = 10;
-    [SerializeField] private int _ColY = 10;
-
-
 
 
     private void Awake()
