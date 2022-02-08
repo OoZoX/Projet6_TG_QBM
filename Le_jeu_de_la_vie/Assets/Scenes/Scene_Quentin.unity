@@ -238,8 +238,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 7971856975311735699, guid: ebe278ee7ac2467479b2d5f84eeaaf6b, type: 3}
-  _ColX: 100
-  _ColY: 100
+  _ColX: 10
+  _ColY: 10
 --- !u!1001 &1894150427
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -253,11 +253,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2637367500179895082, guid: ebe278ee7ac2467479b2d5f84eeaaf6b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -68931.7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2637367500179895082, guid: ebe278ee7ac2467479b2d5f84eeaaf6b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 24240.236
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2637367500179895082, guid: ebe278ee7ac2467479b2d5f84eeaaf6b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -294,6 +294,14 @@ PrefabInstance:
     - target: {fileID: 7971856975311735699, guid: ebe278ee7ac2467479b2d5f84eeaaf6b, type: 3}
       propertyPath: m_Name
       value: Square
+      objectReference: {fileID: 0}
+    - target: {fileID: 7971856975311735699, guid: ebe278ee7ac2467479b2d5f84eeaaf6b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9074266722652530748, guid: ebe278ee7ac2467479b2d5f84eeaaf6b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ebe278ee7ac2467479b2d5f84eeaaf6b, type: 3}
