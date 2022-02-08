@@ -34,7 +34,7 @@ public class Input : MonoBehaviour
             }
             else
             {
-                CreateMap.Instance._Grid[(int)_Pos_souri.x, (int)_Pos_souri.y].GetComponent<SpriteRenderer>().color = Color.white;
+                CreateMap.Instance._Grid[(int)_Pos_souri.x , (int)_Pos_souri.y ].GetComponent<SpriteRenderer>().color = Color.white;
             }
             
             //Debug.Log(color);

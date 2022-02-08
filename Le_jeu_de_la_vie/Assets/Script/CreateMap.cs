@@ -35,7 +35,7 @@ public class CreateMap : MonoBehaviour
         {
             for (int j = 0; j < _ColY; j++)
             {
-                Vector3 pos = new Vector3(i, j, 0);
+                Vector3 pos = new Vector3(i + 0.5f, j + 0.5f, 0);
                 GameObject clone = Instantiate(prefab, pos, Quaternion.identity);
                 _Grid[i, j] = clone;
                 
