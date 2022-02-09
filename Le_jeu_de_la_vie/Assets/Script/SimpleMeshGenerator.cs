@@ -9,25 +9,26 @@ public class SimpleMeshGenerator : MonoBehaviour
 
     Vector3[] coo_object;
     int[] indices;
-
     Vector2[] coo_material;
-
-    void Start()
+    public GameObject MakeQuad(float x, float y)
     {
-        if (choix == "triangle")
-        {
-            MakeTriangle();
-        }
-        if (choix == "quad")
-        {
-            MakeQuad();
-        }
-        if(choix == "doublequad")
-        {
-            MakeDoubleQuad();
-        }        
-        
+        coo_object = new Vector3[] {
+            new Vector3(0.0f + x, 0.0f + y, 0.0f),
+            new Vector3(1.0f + x, 0.0f + y, 0.0f),
+            new Vector3(1.0f + x, 1.0f + y, 0.0f),
+            new Vector3(0.0f + x, 1.0f + y, 0.0f),
+
+        };
+
+        indices = new int[] {
+            0, 1, 2,
+            0, 2, 3,
+        };
+        GameObject temp = BuildMesh("quad", coo_object, indices);
+        return temp;
     }
+
+    public static SimpleMeshGenerator Instance;
 
     void MakeTriangle()
     {
@@ -56,22 +57,7 @@ public class SimpleMeshGenerator : MonoBehaviour
         // TO DO: appeller la fonction BuildMesh avec les bons paramètres
     }
 
-    void MakeQuad()
-    {
-        coo_object = new Vector3[] {
-            new Vector3(0.0f, 0.0f, 0.0f),
-            new Vector3(1.0f, 0.0f, 0.0f),
-            new Vector3(1.0f, 1.0f, 0.0f),
-            new Vector3(0.0f, 1.0f, 0.0f),
 
-        };
-
-        indices = new int[] {
-            0, 1, 2, 0, 2, 3,
-        };
-
-        BuildMesh("triangle", coo_object, indices);
-    }
 
 
 
@@ -103,7 +89,7 @@ public class SimpleMeshGenerator : MonoBehaviour
 
     }
 
-    protected void BuildMesh(string gameObjectName, Vector3[] vertices, int[] indices, Vector2[] uvs = null)
+    protected GameObject BuildMesh(string gameObjectName, Vector3[] vertices, int[] indices, Vector2[] uvs = null)
     {
         // Search in the scene if there is a GameObject called "gameObjectName". If yes, we destroy it.
         GameObject oldOne = GameObject.Find(gameObjectName);
@@ -125,5 +111,7 @@ public class SimpleMeshGenerator : MonoBehaviour
         // Apply the material.
         if (MeshMaterial != null)
             meshRenderer.material = MeshMaterial;
+        return primitive;
     }
+    
 }
