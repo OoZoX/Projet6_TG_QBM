@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
+using System.IO;
 
 public class LoadGame : MonoBehaviour
 {
     [SerializeField] public Button button_load;
     [SerializeField] private TMP_InputField _NameFileLoad;
+    private string path;
 
     void Start()
     {
@@ -23,6 +25,14 @@ public class LoadGame : MonoBehaviour
 
     private void loadGame()
     {
+        try
+        {
+            path = "./Assets/save/" + _NameFileLoad + ".txt";
+            path = Path.GetFullPath(path);
+        }
+        finally
+        {
 
+        }
     }
 }

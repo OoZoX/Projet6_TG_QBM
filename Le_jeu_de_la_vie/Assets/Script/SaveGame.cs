@@ -59,7 +59,7 @@ public class SaveGame : MonoBehaviour
                 pathChemin = "./Assets/save/chemin.txt";
                 pathChemin = Path.GetFullPath(pathChemin);
                 //string fileChemin = Path.GetFileName(pathChemin);
-                StreamWriter sw = new StreamWriter(pathChemin);
+                using StreamWriter sw = new StreamWriter(pathChemin, append: true);
                 sw.WriteLine(_NameFile.text);
                 sw.Close();
             }
