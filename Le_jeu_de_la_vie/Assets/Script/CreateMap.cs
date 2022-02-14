@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CreateMap : MonoBehaviour
 {
@@ -8,8 +9,8 @@ public class CreateMap : MonoBehaviour
     public GameObject prefab;
 
     public GameObject[,] _Grid;
-    
 
+    public Slider sliderUI;
 
     [SerializeField] public int _ColX = 10;
     [SerializeField] public int _ColY = 10;
@@ -49,14 +50,6 @@ public class CreateMap : MonoBehaviour
         
     }
 
-    public void Update_Rows(int new_ColX)
-    {
-        _ColX = new_ColX;
-    }
 
-    public void Update_Columns(int new_ColY)
-    {
-        _ColX = new_ColY;
-    }
 
 }
