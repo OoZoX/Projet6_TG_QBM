@@ -611,7 +611,7 @@ GameObject:
   - component: {fileID: 687031785}
   - component: {fileID: 687031784}
   m_Layer: 5
-  m_Name: name_fichier (1)
+  m_Name: name_fichier_load
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -786,7 +786,7 @@ GameObject:
   - component: {fileID: 1027003423}
   - component: {fileID: 1027003422}
   m_Layer: 5
-  m_Name: name_fichier
+  m_Name: name_fichier_save
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1382,7 +1382,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button_load: {fileID: 1567550992}
-  _NameFileLoad: {fileID: 0}
+  _NameFileLoad: {fileID: 687031784}
 --- !u!1 &1585914306
 GameObject:
   m_ObjectHideFlags: 0
@@ -1976,6 +1976,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 7971856975311735699, guid: ebe278ee7ac2467479b2d5f84eeaaf6b, type: 3}
+  sliderUI: {fileID: 0}
   _ColX: 100
   _ColY: 100
 --- !u!114 &2045918030
