@@ -9,10 +9,8 @@ public class UImanager : MonoBehaviour
 {
 public Slider sliderUI;
 private TextMeshProUGUI textSliderValue;
-[SerializeField]private TMP_InputField SaveInput;
     // Start is called before the first frame update
-
-    private void Start()
+    void Start()
     {
         textSliderValue = GetComponent<TextMeshProUGUI>();
         ShowSliderValue();
@@ -31,9 +29,5 @@ private TextMeshProUGUI textSliderValue;
     public void ChangeColumns()
     {
         CreateMap.Instance._ColY = (int)sliderUI.value;
-    }
-    public void ShowInputSave()
-    {
-        gameObject.SetActive(true);
     }
 }
