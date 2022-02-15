@@ -74,6 +74,5 @@ public class SaveGame : MonoBehaviour
         {
             Debug.Log("probleme save !");
         }
-        Debug.Log("button save");
     }
 }
