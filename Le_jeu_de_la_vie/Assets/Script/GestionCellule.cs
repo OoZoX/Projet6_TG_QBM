@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using System;
+using System.IO;
+using UnityEngine.UI;
 
 public class GestionCellule : MonoBehaviour
 {
@@ -11,14 +10,17 @@ public class GestionCellule : MonoBehaviour
     public bool[,] _CelluleTemp;
     [SerializeField] private int vitesse = 30;
 
+
     public bool start = false;
     // Start is called before the first frame update
     void Start()
     {
+
+
         _ColX = CreateMap.Instance._ColX;
         _ColY = CreateMap.Instance._ColY;
         _CelluleTemp = new bool[_ColX, _ColY];
-        
+
 
     }
 
@@ -145,5 +147,15 @@ public class GestionCellule : MonoBehaviour
         {
             Application.targetFrameRate = 300;
         }
+    }
+
+    public void RunGame()
+    {
+        start = true;
+    }
+
+    public void StopGame()
+    {
+        start = false;
     }
 }
