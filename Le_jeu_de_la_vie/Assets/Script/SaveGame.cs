@@ -2,6 +2,9 @@ using System.IO;
 using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
+using System;
+using System.IO;
+using System.Text;
 
 public class SaveGame : MonoBehaviour
 {
@@ -10,6 +13,8 @@ public class SaveGame : MonoBehaviour
     [SerializeField] private TMP_InputField _NameFile;
     private string path;
     private string line;
+    private string pathChemin;
+    private string pathFileName;
 
     private void Start()
     {
@@ -25,6 +30,8 @@ public class SaveGame : MonoBehaviour
             path = Path.GetFullPath(path);
             Debug.Log(path);
             StreamWriter file = new StreamWriter(path);
+            file.WriteLine(CreateMap.Instance._ColX);
+            file.WriteLine(CreateMap.Instance._ColY);
             for (int i = 0; i < CreateMap.Instance._ColX; i++)
             {
                 line = "";
@@ -42,12 +49,25 @@ public class SaveGame : MonoBehaviour
                 file.WriteLine(line);
             }
             file.Close();
+            try
+            {
+                pathChemin = "./Assets/save/chemin.txt";
+                pathChemin = Path.GetFullPath(pathChemin);
+                //string fileChemin = Path.GetFileName(pathChemin);
+                using StreamWriter sw = new StreamWriter(pathChemin, append: true);
+                sw.WriteLine(_NameFile.text);
+                sw.Close();
+            }
+
+            finally
+            {
+                Debug.Log("probleme save name file");
+            }
 
         }
         finally
         {
             Debug.Log("probleme save !");
         }
-        Debug.Log("button save");
     }
 }
