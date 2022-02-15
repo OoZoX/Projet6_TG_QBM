@@ -14,15 +14,10 @@ public class SaveGame : MonoBehaviour
     private void Start()
     {
 
-        button_save = GetComponent<Button>();
-
-
-        button_save.onClick.AddListener(TaskOnClickSave);
-
     }
 
 
-    private void TaskOnClickSave()
+    public void TaskOnClickSave()
     {
         try
         {
