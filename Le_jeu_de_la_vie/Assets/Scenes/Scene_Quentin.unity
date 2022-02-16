@@ -991,7 +991,7 @@ MonoBehaviour:
   m_MinValue: 1
   m_MaxValue: 100
   m_WholeNumbers: 1
-  m_Value: 1
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -1010,7 +1010,7 @@ MonoBehaviour:
       - m_Target: {fileID: 664036969}
         m_TargetAssemblyTypeName: UImanager, Assembly-CSharp
         m_MethodName: ChangeRows
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2188,7 +2188,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1342970212}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 67.6, y: 50.9, z: -10}
+  m_LocalPosition: {x: 57.9, y: 50.9, z: -10}
   m_LocalScale: {x: 5, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2747,7 +2747,7 @@ MonoBehaviour:
   m_MinValue: 1
   m_MaxValue: 100
   m_WholeNumbers: 1
-  m_Value: 1
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -2765,7 +2765,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1878580638}
         m_TargetAssemblyTypeName: UImanager, Assembly-CSharp
-        m_MethodName: ChangeRows
+        m_MethodName: ChangeColumns
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3296,8 +3296,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 7971856975311735699, guid: ebe278ee7ac2467479b2d5f84eeaaf6b, type: 3}
   sliderUI: {fileID: 0}
-  _ColX: 100
-  _ColY: 100
+  _Cols: 100
+  _Rows: 100
 --- !u!114 &2045918030
 MonoBehaviour:
   m_ObjectHideFlags: 0

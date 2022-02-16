@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
+
 
 public class CreateMap : MonoBehaviour
 {
@@ -9,97 +11,88 @@ public class CreateMap : MonoBehaviour
     public GameObject prefab;
 
     public GameObject[,] _Grid;
-    private GameObject[,] _GridTemp;
 
     public Slider sliderUI;
 
-    [SerializeField] public int _ColX = 10;
-    [SerializeField] public int _ColY = 10;
+    [SerializeField] public int _Cols = 10;
+    [SerializeField] public int _Rows = 10;
 
     public static CreateMap Instance;
 
 
     private void Awake()
-    {
-        CreateFirstMap(); 
-    }
-
-
-    private void CreateFirstMap()
-    {
+    {        
+        
         if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(this);
-            //Init();
+            CreateFirstMap();
         }
         else
         {
             Destroy(gameObject);
         }
-        _Grid = new GameObject[_ColX, _ColY];
-        for (int i = 0; i < _ColX; i++)
+    }
+
+    private void CreateFirstMap()
+    {
+        _Grid = new GameObject[_Cols, _Rows];
+        for (int col = 0; col < _Cols; col++)
         {
-            for (int j = 0; j < _ColY; j++)
+            for (int row = 0; row < _Rows; row++)
             {
-                Vector3 pos = new Vector3(i + 0.5f, j + 0.5f, 0);
+                Vector3 pos = new Vector3(col + 0.5f, row + 0.5f, 0);
                 GameObject clone = Instantiate(prefab, pos, Quaternion.identity);
-                _Grid[i, j] = clone;
+                _Grid[col, row] = clone;
 
             }
         }
     }
-    public void ChangeSizeMap(int x, int y)
+    public void ChangeSizeMap(int newCols, int newRows)
     {
-        _GridTemp = new GameObject[x, y];
-
-        if (x < _ColX)
+        if (newCols < _Cols || newRows < _Rows)
         {
-            ReductMap(x, y);
+            ReductMap(newCols, newRows);
         }
-        else if (x > _ColX)
+        else if (newCols > _Cols || newRows > _Rows )
         {
-            ExpendMap(x, y);
+            ExpendMap(newCols, newRows);
         }
         else
         {
             Debug.Log("same size");
         }
+        _Cols = newCols;
+        _Rows = newRows;
     }
 
-    private void ReductMap(int x, int y)
+    private void ReductMap(int newCols, int newRows)
     {
-        for (int i = 0; i < x; i++)
+        for (int col = 0; col < _Cols; col++)
         {
-            for (int j = 0; j < y; j++)
+            for (int rows = 0; rows < _Rows; rows++)
             {
-                _GridTemp[i, j] = _Grid[i, j];
-            }
-        }
-        _Grid = new GameObject[x, y];
-        _Grid = _GridTemp;
-    }
-
-    private void ExpendMap(int x, int y)
-    {
-        for (int i = 0; i < x; i++)
-        {
-            for (int j = 0; j < y; j++)
-            {
-                if (i >= _ColX || j >= _ColY)
+                if (col > newCols || rows > newRows)
                 {
-                    Vector3 pos = new Vector3(i + 0.5f, j + 0.5f, 0);
-                    GameObject clone = Instantiate(prefab, pos, Quaternion.identity);
-                    _GridTemp[i, j] = clone;
-                }
-                else
-                {
-                    _GridTemp[i, j] = _Grid[i, j];
+                    _Grid[col, rows].SetActive(false);
                 }
             }
         }
-        _Grid = new GameObject[x, y];
-        _Grid = _GridTemp;
+    }
+
+    private void ExpendMap(int newCols, int newRows)
+    {
+        for (int col = 0; col < newCols; col++)
+        {
+            for (int row = 0; row < newRows; row++)
+            {
+                if (col >= _Cols || row >= _Rows)
+                {
+                    _Grid[col, row].SetActive(true);
+                }
+            }
+        }
     }
     
 }

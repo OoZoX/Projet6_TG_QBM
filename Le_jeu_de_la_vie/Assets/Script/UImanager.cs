@@ -21,13 +21,14 @@ private TextMeshProUGUI textSliderValue;
         textSliderValue.SetText(sliderMessage);
     }
 
-    public void ChangeRows()
+
+    public void ChangeRows(float value)
     {
-        CreateMap.Instance._ColX = (int)sliderUI.value;
+        CreateMap.Instance.ChangeSizeMap(CreateMap.Instance._Cols, (int)value);
     }
 
     public void ChangeColumns()
     {
-        CreateMap.Instance._ColY = (int)sliderUI.value;
+        CreateMap.Instance.ChangeSizeMap((int)sliderUI.value, CreateMap.Instance._Rows);
     }
 }

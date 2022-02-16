@@ -41,7 +41,7 @@ public class Input : MonoBehaviour
         if (UnityEngine.Input.GetMouseButton(0))
         {
             _Pos_souri = camera.ScreenToWorldPoint(UnityEngine.Input.mousePosition);
-            if (_Pos_souri.x < 0 || _Pos_souri.y < 0 || _Pos_souri.x > CreateMap.Instance._ColX || _Pos_souri.y > CreateMap.Instance._ColY)
+            if (_Pos_souri.x < 0 || _Pos_souri.y < 0 || _Pos_souri.x > CreateMap.Instance._Cols || _Pos_souri.y > CreateMap.Instance._Rows)
             {
                 Debug.Log("out of range");
             }

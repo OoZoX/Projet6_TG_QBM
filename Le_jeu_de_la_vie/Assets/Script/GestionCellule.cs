@@ -17,8 +17,8 @@ public class GestionCellule : MonoBehaviour
     {
 
 
-        _ColX = CreateMap.Instance._ColX;
-        _ColY = CreateMap.Instance._ColY;
+        _ColX = CreateMap.Instance._Cols;
+        _ColY = CreateMap.Instance._Rows;
         _CelluleTemp = new bool[_ColX, _ColY];
 
 

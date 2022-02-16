@@ -35,12 +35,12 @@ public class SaveGame : MonoBehaviour
             path = Path.GetFullPath(path);
             Debug.Log(path);
             StreamWriter file = new StreamWriter(path);
-            file.WriteLine(CreateMap.Instance._ColX);
-            file.WriteLine(CreateMap.Instance._ColY);
-            for (int i = 0; i < CreateMap.Instance._ColX; i++)
+            file.WriteLine(CreateMap.Instance._Cols);
+            file.WriteLine(CreateMap.Instance._Rows);
+            for (int i = 0; i < CreateMap.Instance._Cols; i++)
             {
                 line = "";
-                for (int j = 0; j < CreateMap.Instance._ColY; j++)
+                for (int j = 0; j < CreateMap.Instance._Rows; j++)
                 {
                     if (CreateMap.Instance._Grid[i,j].GetComponent<SpriteRenderer>().color == Color.white)
                     {
