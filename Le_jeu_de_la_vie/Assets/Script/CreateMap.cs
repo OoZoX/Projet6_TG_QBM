@@ -14,8 +14,8 @@ public class CreateMap : MonoBehaviour
 
     public Slider sliderUI;
 
-    [SerializeField] public int _Cols = 10;
-    [SerializeField] public int _Rows = 10;
+    [SerializeField] public int _Cols = 150;
+    [SerializeField] public int _Rows = 150;
 
     public static CreateMap Instance;
 
@@ -37,10 +37,10 @@ public class CreateMap : MonoBehaviour
 
     private void CreateFirstMap()
     {
-        _Grid = new GameObject[_Cols, _Rows];
-        for (int col = 0; col < _Cols; col++)
+        _Grid = new GameObject[150, 150];
+        for (int col = 0; col < 150; col++)
         {
-            for (int row = 0; row < _Rows; row++)
+            for (int row = 0; row < 150; row++)
             {
                 Vector3 pos = new Vector3(col + 0.5f, row + 0.5f, 0);
                 GameObject clone = Instantiate(prefab, pos, Quaternion.identity);
@@ -48,14 +48,33 @@ public class CreateMap : MonoBehaviour
 
             }
         }
+        _Cols = 150;
+        _Rows = 150;
+
+        for (int col = 0; col < _Cols; col++)
+        {
+            for (int rows = 0; rows < _Rows; rows++)
+            {
+                if (col > 125 || rows > 125 || col < 26 || rows < 26)
+                {
+                    _Grid[col, rows].SetActive(false);
+                }
+            }
+        }
+
+        _Cols = 100;
+        _Rows = 100;
+
     }
     public void ChangeSizeMap(int newCols, int newRows)
     {
+        
         if (newCols < _Cols || newRows < _Rows)
         {
+
             ReductMap(newCols, newRows);
         }
-        else if (newCols > _Cols || newRows > _Rows )
+        if (newCols > _Cols || newRows > _Rows )
         {
             ExpendMap(newCols, newRows);
         }
@@ -75,7 +94,7 @@ public class CreateMap : MonoBehaviour
             {
                 if (col > newCols || rows > newRows)
                 {
-                    _Grid[col, rows].SetActive(false);
+                    _Grid[col +26, rows +26].SetActive(false);
                 }
             }
         }
@@ -89,7 +108,7 @@ public class CreateMap : MonoBehaviour
             {
                 if (col >= _Cols || row >= _Rows)
                 {
-                    _Grid[col, row].SetActive(true);
+                    _Grid[col +26, row +26].SetActive(true);
                 }
             }
         }

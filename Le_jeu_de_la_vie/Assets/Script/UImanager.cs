@@ -9,6 +9,7 @@ public class UImanager : MonoBehaviour
 {
 public Slider sliderUI;
 private TextMeshProUGUI textSliderValue;
+    string sliderMessage;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +18,7 @@ private TextMeshProUGUI textSliderValue;
     }
     public void ShowSliderValue()
     {
-        string sliderMessage = sliderUI.value.ToString();
+        sliderMessage = sliderUI.value.ToString();
         textSliderValue.SetText(sliderMessage);
     }
 

@@ -19,29 +19,11 @@ public class Input : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (UnityEngine.Input.GetMouseButtonDown(0))
-        //{
-        //    _Pos_souri = camera.ScreenToWorldPoint(UnityEngine.Input.mousePosition);
 
-        //    Debug.Log(_Pos_souri);
-        //    Debug.Log((int)_Pos_souri.x);
-        //    Debug.Log((int)_Pos_souri.y);
-
-        //    if (CreateMap.Instance._Grid[(int)_Pos_souri.x, (int)_Pos_souri.y].GetComponent<SpriteRenderer>().color == Color.white)
-        //    {
-        //        CreateMap.Instance._Grid[(int)_Pos_souri.x, (int)_Pos_souri.y].GetComponent<SpriteRenderer>().color = Color.black;
-        //    }
-        //    else
-        //    {
-        //        CreateMap.Instance._Grid[(int)_Pos_souri.x , (int)_Pos_souri.y ].GetComponent<SpriteRenderer>().color = Color.white;
-        //    }
-            
-        //    //Debug.Log(color);
-        //}
         if (UnityEngine.Input.GetMouseButton(0))
         {
             _Pos_souri = camera.ScreenToWorldPoint(UnityEngine.Input.mousePosition);
-            if (_Pos_souri.x < 0 || _Pos_souri.y < 0 || _Pos_souri.x > CreateMap.Instance._Cols || _Pos_souri.y > CreateMap.Instance._Rows)
+            if (_Pos_souri.x < 25 || _Pos_souri.y < 25 || _Pos_souri.x > CreateMap.Instance._Cols +26 || _Pos_souri.y > CreateMap.Instance._Rows +26)
             {
                 Debug.Log("out of range");
             }

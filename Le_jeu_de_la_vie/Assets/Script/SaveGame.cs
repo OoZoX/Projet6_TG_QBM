@@ -2,9 +2,9 @@ using System.IO;
 using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
-using System;
-using System.IO;
-using System.Text;
+//using System.Text.Json;
+//using System.Text.Json.Serialization;
+
 
 public class SaveGame : MonoBehaviour
 {
@@ -31,7 +31,7 @@ public class SaveGame : MonoBehaviour
     {
         try
         {
-            path = "./Assets/save/" + _NameFile.text + ".txt";
+            path = "./Assets/save/" + _NameFile.text + ".json";
             path = Path.GetFullPath(path);
             Debug.Log(path);
             StreamWriter file = new StreamWriter(path);
