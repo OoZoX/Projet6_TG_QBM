@@ -17,7 +17,7 @@ public class Input : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        // recupere pos souris et color carre 
         if (UnityEngine.Input.GetMouseButton(0))
         {
             _Pos_souri = _Camera.ScreenToWorldPoint(UnityEngine.Input.mousePosition);

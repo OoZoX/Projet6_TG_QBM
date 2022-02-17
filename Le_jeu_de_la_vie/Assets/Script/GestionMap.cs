@@ -31,6 +31,7 @@ public class GestionMap : MonoBehaviour
         }
     }
 
+    // build premiere map
     private void CreateFirstMap()
     {
         m_grid = new GameObject[150, 150];
@@ -62,6 +63,8 @@ public class GestionMap : MonoBehaviour
         m_rows = 100;
 
     }
+
+    // change la taille de la map
     public void ChangeSizeMap(int newCols, int newRows)
     {
         
@@ -82,6 +85,7 @@ public class GestionMap : MonoBehaviour
         m_rows = newRows;
     }
 
+    // Reduit la taille de la map
     private void ReductMap(int newCols, int newRows)
     {
         for (int col = 0; col < m_cols; col++)
@@ -96,6 +100,7 @@ public class GestionMap : MonoBehaviour
         }
     }
 
+    // Augmente la taille de la map
     private void ExpendMap(int newCols, int newRows)
     {
         for (int col = 0; col < newCols; col++)
@@ -110,20 +115,19 @@ public class GestionMap : MonoBehaviour
         }
     }
 
+    // remet la map a zeo
     public void CleanMap()
     {
-        for (int col = 0; col < m_cols; col++)
+        for (int col = 0; col < 149; col++)
         {
-            for (int rows = 0; rows < m_rows; rows++)
+            for (int rows = 0; rows < 149; rows++)
             {
+                m_grid[col, rows].GetComponent<SpriteRenderer>().color = Color.black;
                 if (col > 125 || rows > 125 || col < 26 || rows < 26)
                 {
                     m_grid[col, rows].SetActive(false);
                 }
-                else
-                {
-                    m_grid[col, rows].GetComponent<SpriteRenderer>().color = Color.black;
-                }
+
             }
         }
         ChangeSizeMap(100,100);

@@ -12,7 +12,7 @@ public class LoadGame : MonoBehaviour
     private string _Line;
     private string _LineTemp;
     private int _ColTxt;
-    private int _RowTxt;
+    private int y;
 
     void Start()
     {
@@ -37,11 +37,11 @@ public class LoadGame : MonoBehaviour
             {
                 _LineTemp = sr.ReadLine();
 
-                if (int.TryParse(_LineTemp, out _RowTxt))
+                if (int.TryParse(_LineTemp, out y))
                 {
-                    GestionMap.Instance.ChangeSizeMap(_ColTxt, _RowTxt);
+                    GestionMap.Instance.ChangeSizeMap(_ColTxt, y);
 
-                    UpdateMap(_ColTxt, _RowTxt, sr);
+                    UpdateMap(_ColTxt, y, sr);
                 }
                 else
                 {
@@ -58,7 +58,7 @@ public class LoadGame : MonoBehaviour
             Debug.Log("probleme load map");
         }
     }
-
+    // Recupere le path
     private StreamReader GetPath()
     {
         _Path = "./Assets/save/" + _NameFileLoad.text + ".txt";
@@ -69,6 +69,7 @@ public class LoadGame : MonoBehaviour
         return sr;
     }
 
+    // Met a jour la map avec le fichier
     private void UpdateMap(int x, int y, StreamReader sr)
     {
         for (int i = 0; i < x; i++)

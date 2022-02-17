@@ -55,12 +55,14 @@ public class GestionCellule : MonoBehaviour
                 m_start = false;
                 m_one_updtate = false;
             }
+            QualitySettings.vSyncCount = 0;
+            Application.targetFrameRate = _Vitesse;
             m_compt_simulation++;
             m_textCompteur.GetComponent<TextMeshProUGUI>().text = m_compt_simulation.ToString();
 
             m_celluleTemp = new bool[_Col, _Row];
 
-            Application.targetFrameRate = _Vitesse;
+            
 
             if (m_map_infini == true)
             {
@@ -96,35 +98,46 @@ public class GestionCellule : MonoBehaviour
         }
     }
 
+    // Color btn run game and run game 
     public void RunGame()
     {
         m_start = true;
         m_img_btn_play.GetComponent<Image>().color = Color.green;
     }
 
+    // stop game and color btn
     public void StopGame()
     {
         m_start = false;
         m_img_btn_play.GetComponent<Image>().color = new Color32(0, 60, 0, 255);
     }
 
+    // avance pas a pas 
     public void OneUpdate()
     {
         m_one_updtate = true;
         m_start = true;
     }
+
+    // Vitesse X1
     public void Vitesse1()
-    {
-        _Vitesse = 5;
-    }
-    public void Vitesse2()
     {
         _Vitesse = 10;
     }
+
+    // Vitesse X2
+    public void Vitesse2()
+    {
+        _Vitesse = 15;
+    }
+
+    // Vitesse X4
     public void Vitesse4()
     {
         _Vitesse = 20;
     }
+
+    // Change mode bordure 
     public void IfiniBordureBtn()
     {
         if (m_map_infini == false)
