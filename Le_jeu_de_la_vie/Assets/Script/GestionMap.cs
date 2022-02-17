@@ -114,5 +114,24 @@ public class GestionMap : MonoBehaviour
             }
         }
     }
+
+    public void CleanMap()
+    {
+        for (int col = 0; col < _Cols; col++)
+        {
+            for (int rows = 0; rows < _Rows; rows++)
+            {
+                if (col > 125 || rows > 125 || col < 26 || rows < 26)
+                {
+                    _Grid[col, rows].SetActive(false);
+                }
+                else
+                {
+                    _Grid[col, rows].GetComponent<SpriteRenderer>().color = Color.black;
+                }
+            }
+        }
+        ChangeSizeMap(100,100);
+    }
     
 }

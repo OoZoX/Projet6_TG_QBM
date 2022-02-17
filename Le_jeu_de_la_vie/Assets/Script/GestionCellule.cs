@@ -16,7 +16,7 @@ public class GestionCellule : MonoBehaviour
 
     public bool[,] _CelluleTemp;
 
-    [SerializeField] private int vitesse = 30;
+    [SerializeField] private int vitesse = 5;
 
     public int compt_simulation = 0;
 
@@ -93,6 +93,7 @@ public class GestionCellule : MonoBehaviour
         }else 
         {
             Application.targetFrameRate = 300;
+            
         }
     }
 
@@ -112,6 +113,18 @@ public class GestionCellule : MonoBehaviour
     {
         one_updtate = true;
         start = true;
+    }
+    public void Vitesse1()
+    {
+        vitesse = 5;
+    }
+    public void Vitesse2()
+    {
+        vitesse = 10;
+    }
+    public void Vitesse4()
+    {
+        vitesse = 20;
     }
     public void IfiniBordureBtn()
     {
