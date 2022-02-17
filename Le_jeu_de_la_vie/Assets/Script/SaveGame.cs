@@ -2,26 +2,25 @@ using System.IO;
 using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
-//using System.Text.Json.Serialization;
+
 
 
 public class SaveGame : MonoBehaviour
 {
 
-    [SerializeField] public Button button_save;
+    [SerializeField] public Button m_button_save;
     [SerializeField] private TMP_InputField _NameFile;
-    private string path;
-    private string line;
-    private string pathChemin;
-    private string pathFileName;
+    private string _Path;
+    private string _Line;
+    private string _PathChemin;
 
     private void Start()
     {
 
-        button_save = GetComponent<Button>();
+        m_button_save = GetComponent<Button>();
 
 
-        button_save.onClick.AddListener(TaskOnClickSave);
+        m_button_save.onClick.AddListener(TaskOnClickSave);
 
     }
 
@@ -30,35 +29,35 @@ public class SaveGame : MonoBehaviour
     {
         try
         {
-            path = "./Assets/save/" + _NameFile.text + ".txt";
-            path = Path.GetFullPath(path);
-            Debug.Log(path);
-            StreamWriter file = new StreamWriter(path);
-            file.WriteLine(GestionMap.Instance._Cols);
-            file.WriteLine(GestionMap.Instance._Rows);
-            for (int i = 0; i < GestionMap.Instance._Cols; i++)
+            _Path = "./Assets/save/" + _NameFile.text + ".txt";
+            _Path = Path.GetFullPath(_Path);
+            Debug.Log(_Path);
+            StreamWriter file = new StreamWriter(_Path);
+            file.WriteLine(GestionMap.Instance.m_cols);
+            file.WriteLine(GestionMap.Instance.m_rows);
+            for (int i = 0; i < GestionMap.Instance.m_cols; i++)
             {
-                line = "";
-                for (int j = 0; j < GestionMap.Instance._Rows; j++)
+                _Line = "";
+                for (int j = 0; j < GestionMap.Instance.m_rows; j++)
                 {
-                    if (GestionMap.Instance._Grid[i,j].GetComponent<SpriteRenderer>().color == Color.white)
+                    if (GestionMap.Instance.m_grid[i,j].GetComponent<SpriteRenderer>().color == Color.white)
                     {
-                        line += "1";
+                        _Line += "1";
                     }
                     else
                     {
-                        line += "0";
+                        _Line += "0";
                     }
                 }
-                file.WriteLine(line);
+                file.WriteLine(_Line);
             }
             file.Close();
             try
             {
-                pathChemin = "./Assets/save/chemin.txt";
-                pathChemin = Path.GetFullPath(pathChemin);
+                _PathChemin = "./Assets/save/chemin.txt";
+                _PathChemin = Path.GetFullPath(_PathChemin);
                 //string fileChemin = Path.GetFileName(pathChemin);
-                using StreamWriter sw = new StreamWriter(pathChemin, append: true);
+                using StreamWriter sw = new StreamWriter(_PathChemin, append: true);
                 sw.WriteLine(_NameFile.text);
                 sw.Close();
             }

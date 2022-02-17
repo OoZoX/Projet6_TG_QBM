@@ -1,29 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.UI;
 
 
 public class GestionMap : MonoBehaviour
 {
     [SerializeField]
-    public GameObject prefab;
+    public GameObject m_prefab;
 
-    public GameObject[,] _Grid;
+    public GameObject[,] m_grid;
 
-    [SerializeField] public int _Cols = 150;
-    [SerializeField] public int _Rows = 150;
+    [SerializeField] public int m_cols = 150;
+    [SerializeField] public int m_rows = 150;
 
-    public int _ColsSlider = 100;
-    public int _RowsSlider = 100;
+    public int m_colsSlider = 100;
+    public int m_rowsSlider = 100;
 
     public static GestionMap Instance;
 
 
     private void Awake()
     {        
-        
         if (Instance == null)
         {
             Instance = this;
@@ -38,44 +33,44 @@ public class GestionMap : MonoBehaviour
 
     private void CreateFirstMap()
     {
-        _Grid = new GameObject[150, 150];
+        m_grid = new GameObject[150, 150];
         for (int col = 0; col < 150; col++)
         {
             for (int row = 0; row < 150; row++)
             {
                 Vector3 pos = new Vector3(col + 0.5f, row + 0.5f, 0);
-                GameObject clone = Instantiate(prefab, pos, Quaternion.identity);
-                _Grid[col, row] = clone;
+                GameObject clone = Instantiate(m_prefab, pos, Quaternion.identity);
+                m_grid[col, row] = clone;
 
             }
         }
-        _Cols = 150;
-        _Rows = 150;
+        m_cols = 150;
+        m_rows = 150;
 
-        for (int col = 0; col < _Cols; col++)
+        for (int col = 0; col < m_cols; col++)
         {
-            for (int rows = 0; rows < _Rows; rows++)
+            for (int rows = 0; rows < m_rows; rows++)
             {
                 if (col > 125 || rows > 125 || col < 26 || rows < 26)
                 {
-                    _Grid[col, rows].SetActive(false);
+                    m_grid[col, rows].SetActive(false);
                 }
             }
         }
 
-        _Cols = 100;
-        _Rows = 100;
+        m_cols = 100;
+        m_rows = 100;
 
     }
     public void ChangeSizeMap(int newCols, int newRows)
     {
         
-        if (newCols < _Cols || newRows < _Rows)
+        if (newCols < m_cols || newRows < m_rows)
         {
 
             ReductMap(newCols, newRows);
         }
-        if (newCols > _Cols || newRows > _Rows )
+        if (newCols > m_cols || newRows > m_rows )
         {
             ExpendMap(newCols, newRows);
         }
@@ -83,19 +78,19 @@ public class GestionMap : MonoBehaviour
         {
             Debug.Log("same size");
         }
-        _Cols = newCols;
-        _Rows = newRows;
+        m_cols = newCols;
+        m_rows = newRows;
     }
 
     private void ReductMap(int newCols, int newRows)
     {
-        for (int col = 0; col < _Cols; col++)
+        for (int col = 0; col < m_cols; col++)
         {
-            for (int rows = 0; rows < _Rows; rows++)
+            for (int rows = 0; rows < m_rows; rows++)
             {
                 if (col >= newCols || rows >= newRows)
                 {
-                    _Grid[col +26, rows +26].SetActive(false);
+                    m_grid[col +26, rows +26].SetActive(false);
                 }
             }
         }
@@ -107,9 +102,9 @@ public class GestionMap : MonoBehaviour
         {
             for (int row = 0; row < newRows; row++)
             {
-                if (col >= _Cols || row >= _Rows)
+                if (col >= m_cols || row >= m_rows)
                 {
-                    _Grid[col +26, row +26].SetActive(true);
+                    m_grid[col +26, row +26].SetActive(true);
                 }
             }
         }
@@ -117,17 +112,17 @@ public class GestionMap : MonoBehaviour
 
     public void CleanMap()
     {
-        for (int col = 0; col < _Cols; col++)
+        for (int col = 0; col < m_cols; col++)
         {
-            for (int rows = 0; rows < _Rows; rows++)
+            for (int rows = 0; rows < m_rows; rows++)
             {
                 if (col > 125 || rows > 125 || col < 26 || rows < 26)
                 {
-                    _Grid[col, rows].SetActive(false);
+                    m_grid[col, rows].SetActive(false);
                 }
                 else
                 {
-                    _Grid[col, rows].GetComponent<SpriteRenderer>().color = Color.black;
+                    m_grid[col, rows].GetComponent<SpriteRenderer>().color = Color.black;
                 }
             }
         }

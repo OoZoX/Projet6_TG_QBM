@@ -1,25 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
 using System.IO;
-using System.Threading.Tasks;
+
 
 public class LoadGame : MonoBehaviour
 {
-    [SerializeField] public Button button_load;
+    [SerializeField] public Button m_button_load;
     [SerializeField] private TMP_InputField _NameFileLoad;
-    private string path;
+    private string _Path;
     private string _Line;
     private string _LineTemp;
-    private int x;
-    private int y;
+    private int _ColTxt;
+    private int _RowTxt;
 
     void Start()
     {
-        button_load = GetComponent<Button>();
-        button_load.onClick.AddListener(TaskOnClickLoad);
+        m_button_load = GetComponent<Button>();
+        m_button_load.onClick.AddListener(TaskOnClickLoad);
     }
 
     private void TaskOnClickLoad()
@@ -35,15 +33,15 @@ public class LoadGame : MonoBehaviour
             StreamReader sr = GetPath();
              _Line = sr.ReadLine();
 
-            if(int.TryParse(_Line, out x))
+            if(int.TryParse(_Line, out _ColTxt))
             {
                 _LineTemp = sr.ReadLine();
 
-                if (int.TryParse(_LineTemp, out y))
+                if (int.TryParse(_LineTemp, out _RowTxt))
                 {
-                    GestionMap.Instance.ChangeSizeMap(x, y);
+                    GestionMap.Instance.ChangeSizeMap(_ColTxt, _RowTxt);
 
-                    UpdateMap(x, y, sr);
+                    UpdateMap(_ColTxt, _RowTxt, sr);
                 }
                 else
                 {
@@ -63,10 +61,10 @@ public class LoadGame : MonoBehaviour
 
     private StreamReader GetPath()
     {
-        path = "./Assets/save/" + _NameFileLoad.text + ".txt";
-        path = Path.GetFullPath(path);
+        _Path = "./Assets/save/" + _NameFileLoad.text + ".txt";
+        _Path = Path.GetFullPath(_Path);
 
-        StreamReader sr = new StreamReader(path);
+        StreamReader sr = new StreamReader(_Path);
 
         return sr;
     }
@@ -81,11 +79,11 @@ public class LoadGame : MonoBehaviour
             {
                 if (_Line[j].ToString() == "1")
                 {
-                    GestionMap.Instance._Grid[i, j].GetComponent<SpriteRenderer>().color = Color.white;
+                    GestionMap.Instance.m_grid[i, j].GetComponent<SpriteRenderer>().color = Color.white;
                 }
                 else if (_Line[j].ToString() == "0")
                 {
-                    GestionMap.Instance._Grid[i, j].GetComponent<SpriteRenderer>().color = Color.black;
+                    GestionMap.Instance.m_grid[i, j].GetComponent<SpriteRenderer>().color = Color.black;
                 }
                 else
                 {

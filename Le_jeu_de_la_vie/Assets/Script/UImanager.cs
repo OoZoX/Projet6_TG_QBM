@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,34 +5,29 @@ using UnityEngine.UI;
 public class UImanager : MonoBehaviour
 
 {
-    public Slider sliderCol;
-    public Slider sliderRow;
-    public TextMeshProUGUI textSliderValueCols;
-    public TextMeshProUGUI textSliderValueRows;
-    string sliderMessage;
+    public Slider m_sliderCol;
+    public Slider m_liderRow;
+    public TextMeshProUGUI m_textSliderValueCols;
+    public TextMeshProUGUI m_textSliderValueRows;
+    private string _SliderMessage;
 
     private int _NewCols = 100;
     private int _NewRows = 100;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
     public void ShowSliderValue(Slider slider)
     {
-        sliderMessage = slider.value.ToString();
-        Debug.Log(sliderMessage);
+        _SliderMessage = slider.value.ToString();
+        Debug.Log(_SliderMessage);
 
         if (slider.name == "ColumnRow")
         {
 
-            textSliderValueCols.GetComponent<TextMeshProUGUI>().SetText(sliderMessage);
+            m_textSliderValueCols.GetComponent<TextMeshProUGUI>().SetText(_SliderMessage);
             ChangeCols(slider.value);
         }
         else
         {
-            textSliderValueRows.GetComponent<TextMeshProUGUI>().SetText(sliderMessage);
+            m_textSliderValueRows.GetComponent<TextMeshProUGUI>().SetText(_SliderMessage);
             ChangeRows(slider.value);
         }
     }
