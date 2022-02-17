@@ -28,7 +28,7 @@ public class UImanager : MonoBehaviour
 
         if (slider.name == "ColumnRow")
         {
-            
+
             textSliderValueCols.GetComponent<TextMeshProUGUI>().SetText(sliderMessage);
             ChangeCols(slider.value);
         }
@@ -55,5 +55,6 @@ public class UImanager : MonoBehaviour
     {
         GestionMap.Instance.ChangeSizeMap(_NewCols, _NewRows);
     }
-    
 }
+    
+

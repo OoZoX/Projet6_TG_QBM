@@ -12,8 +12,6 @@ public class GestionMap : MonoBehaviour
 
     public GameObject[,] _Grid;
 
-    public Slider sliderUI;
-
     [SerializeField] public int _Cols = 150;
     [SerializeField] public int _Rows = 150;
 
