@@ -31,18 +31,18 @@ public class SaveGame : MonoBehaviour
     {
         try
         {
-            path = "./Assets/save/" + _NameFile.text + ".json";
+            path = "./Assets/save/" + _NameFile.text + ".txt";
             path = Path.GetFullPath(path);
             Debug.Log(path);
             StreamWriter file = new StreamWriter(path);
-            file.WriteLine(CreateMap.Instance._Cols);
-            file.WriteLine(CreateMap.Instance._Rows);
-            for (int i = 0; i < CreateMap.Instance._Cols; i++)
+            file.WriteLine(GestionMap.Instance._Cols);
+            file.WriteLine(GestionMap.Instance._Rows);
+            for (int i = 0; i < GestionMap.Instance._Cols; i++)
             {
                 line = "";
-                for (int j = 0; j < CreateMap.Instance._Rows; j++)
+                for (int j = 0; j < GestionMap.Instance._Rows; j++)
                 {
-                    if (CreateMap.Instance._Grid[i,j].GetComponent<SpriteRenderer>().color == Color.white)
+                    if (GestionMap.Instance._Grid[i,j].GetComponent<SpriteRenderer>().color == Color.white)
                     {
                         line += "1";
                     }

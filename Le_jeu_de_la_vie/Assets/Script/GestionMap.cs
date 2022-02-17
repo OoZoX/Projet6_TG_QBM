@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class CreateMap : MonoBehaviour
+public class GestionMap : MonoBehaviour
 {
     [SerializeField]
     public GameObject prefab;
@@ -17,7 +17,10 @@ public class CreateMap : MonoBehaviour
     [SerializeField] public int _Cols = 150;
     [SerializeField] public int _Rows = 150;
 
-    public static CreateMap Instance;
+    public int _ColsSlider = 100;
+    public int _RowsSlider = 100;
+
+    public static GestionMap Instance;
 
 
     private void Awake()
@@ -92,7 +95,7 @@ public class CreateMap : MonoBehaviour
         {
             for (int rows = 0; rows < _Rows; rows++)
             {
-                if (col > newCols || rows > newRows)
+                if (col >= newCols || rows >= newRows)
                 {
                     _Grid[col +26, rows +26].SetActive(false);
                 }

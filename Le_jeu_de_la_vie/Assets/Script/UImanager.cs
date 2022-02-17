@@ -7,29 +7,53 @@ using UnityEngine.UI;
 public class UImanager : MonoBehaviour
 
 {
-public Slider sliderUI;
-private TextMeshProUGUI textSliderValue;
+    public Slider sliderCol;
+    public Slider sliderRow;
+    public TextMeshProUGUI textSliderValueCols;
+    public TextMeshProUGUI textSliderValueRows;
     string sliderMessage;
+
+    private int _NewCols = 100;
+    private int _NewRows = 100;
+
     // Start is called before the first frame update
     void Start()
     {
-        textSliderValue = GetComponent<TextMeshProUGUI>();
-        ShowSliderValue();
+
     }
-    public void ShowSliderValue()
+    public void ShowSliderValue(Slider slider)
     {
-        sliderMessage = sliderUI.value.ToString();
-        textSliderValue.SetText(sliderMessage);
+        sliderMessage = slider.value.ToString();
+        Debug.Log(sliderMessage);
+
+        if (slider.name == "ColumnRow")
+        {
+            
+            textSliderValueCols.GetComponent<TextMeshProUGUI>().SetText(sliderMessage);
+            ChangeCols(slider.value);
+        }
+        else
+        {
+            textSliderValueRows.GetComponent<TextMeshProUGUI>().SetText(sliderMessage);
+            ChangeRows(slider.value);
+        }
     }
 
 
     public void ChangeRows(float value)
     {
-        CreateMap.Instance.ChangeSizeMap(CreateMap.Instance._Cols, (int)value);
+        _NewRows = (int)value;
     }
 
-    public void ChangeColumns()
+
+    public void ChangeCols(float value)
     {
-        CreateMap.Instance.ChangeSizeMap((int)sliderUI.value, CreateMap.Instance._Rows);
+        _NewCols = (int)value;
     }
+
+    public void Generate()
+    {
+        GestionMap.Instance.ChangeSizeMap(_NewCols, _NewRows);
+    }
+    
 }

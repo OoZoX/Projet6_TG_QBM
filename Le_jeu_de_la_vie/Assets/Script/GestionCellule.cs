@@ -40,7 +40,7 @@ public class GestionCellule : MonoBehaviour
                     //compte voisin X
                     if (x > 0)
                     {
-                        if (CreateMap.Instance._Grid[x - 1, y].GetComponent<SpriteRenderer>().color == Color.white)
+                        if (GestionMap.Instance._Grid[x - 1, y].GetComponent<SpriteRenderer>().color == Color.white)
                         {
                             _Compt_cellule++;
                         }
@@ -49,7 +49,7 @@ public class GestionCellule : MonoBehaviour
                     }
                     if (x < _ColX - 1)
                     {
-                        if (CreateMap.Instance._Grid[x + 1, y].GetComponent<SpriteRenderer>().color == Color.white)
+                        if (GestionMap.Instance._Grid[x + 1, y].GetComponent<SpriteRenderer>().color == Color.white)
                         {
                             _Compt_cellule++;
                         }
@@ -59,14 +59,14 @@ public class GestionCellule : MonoBehaviour
                     //Compt voisin Y
                     if (y > 0)
                     {
-                        if (CreateMap.Instance._Grid[x, y - 1].GetComponent<SpriteRenderer>().color == Color.white)
+                        if (GestionMap.Instance._Grid[x, y - 1].GetComponent<SpriteRenderer>().color == Color.white)
                         {
                             _Compt_cellule++;
                         }
                     }
                     if (y < _ColY - 1)
                     {
-                        if (CreateMap.Instance._Grid[x, y + 1].GetComponent<SpriteRenderer>().color == Color.white)
+                        if (GestionMap.Instance._Grid[x, y + 1].GetComponent<SpriteRenderer>().color == Color.white)
                         {
                             _Compt_cellule++;
                         }
@@ -76,28 +76,28 @@ public class GestionCellule : MonoBehaviour
 
                     if (x > 0 && y > 0)
                     {
-                        if (CreateMap.Instance._Grid[x -1, y - 1].GetComponent<SpriteRenderer>().color == Color.white)
+                        if (GestionMap.Instance._Grid[x -1, y - 1].GetComponent<SpriteRenderer>().color == Color.white)
                         {
                             _Compt_cellule++;
                         }
                     }
                     if (x < _ColX -1 && y < _ColY - 1)
                     {
-                        if (CreateMap.Instance._Grid[x +1, y + 1].GetComponent<SpriteRenderer>().color == Color.white)
+                        if (GestionMap.Instance._Grid[x +1, y + 1].GetComponent<SpriteRenderer>().color == Color.white)
                         {
                             _Compt_cellule++;
                         }
                     }
                     if (x > 0 && y < _ColY - 1)
                     {
-                        if (CreateMap.Instance._Grid[x - 1, y + 1].GetComponent<SpriteRenderer>().color == Color.white)
+                        if (GestionMap.Instance._Grid[x - 1, y + 1].GetComponent<SpriteRenderer>().color == Color.white)
                         {
                             _Compt_cellule++;
                         }
                     }
                     if (x < _ColX - 1 && y > 0)
                     {
-                        if (CreateMap.Instance._Grid[x + 1, y - 1].GetComponent<SpriteRenderer>().color == Color.white)
+                        if (GestionMap.Instance._Grid[x + 1, y - 1].GetComponent<SpriteRenderer>().color == Color.white)
                         {
                             _Compt_cellule++;
                         }
@@ -115,7 +115,7 @@ public class GestionCellule : MonoBehaviour
                     }
                     else
                     {
-                        if (CreateMap.Instance._Grid[x,y].GetComponent<SpriteRenderer>().color == Color.black)
+                        if (GestionMap.Instance._Grid[x,y].GetComponent<SpriteRenderer>().color == Color.black)
                         {
                             _CelluleTemp[x, y] = false;
                         }
@@ -133,11 +133,11 @@ public class GestionCellule : MonoBehaviour
                 {
                     if (_CelluleTemp[x, y] == false)
                     {
-                        CreateMap.Instance._Grid[x, y].GetComponent<SpriteRenderer>().color = Color.black;
+                        GestionMap.Instance._Grid[x, y].GetComponent<SpriteRenderer>().color = Color.black;
                     }
                     else
                     {
-                        CreateMap.Instance._Grid[x, y].GetComponent<SpriteRenderer>().color = Color.white;
+                        GestionMap.Instance._Grid[x, y].GetComponent<SpriteRenderer>().color = Color.white;
                     }
                     
                 }

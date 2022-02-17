@@ -41,7 +41,7 @@ public class LoadGame : MonoBehaviour
 
                 if (int.TryParse(_LineTemp, out y))
                 {
-                    CreateMap.Instance.ChangeSizeMap(x, y);
+                    GestionMap.Instance.ChangeSizeMap(x, y);
 
                     UpdateMap(x, y, sr);
                 }
@@ -81,11 +81,11 @@ public class LoadGame : MonoBehaviour
             {
                 if (_Line[j].ToString() == "1")
                 {
-                    CreateMap.Instance._Grid[i, j].GetComponent<SpriteRenderer>().color = Color.white;
+                    GestionMap.Instance._Grid[i, j].GetComponent<SpriteRenderer>().color = Color.white;
                 }
                 else if (_Line[j].ToString() == "0")
                 {
-                    CreateMap.Instance._Grid[i, j].GetComponent<SpriteRenderer>().color = Color.black;
+                    GestionMap.Instance._Grid[i, j].GetComponent<SpriteRenderer>().color = Color.black;
                 }
                 else
                 {

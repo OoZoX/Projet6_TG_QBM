@@ -23,7 +23,7 @@ public class Input : MonoBehaviour
         if (UnityEngine.Input.GetMouseButton(0))
         {
             _Pos_souri = camera.ScreenToWorldPoint(UnityEngine.Input.mousePosition);
-            if (_Pos_souri.x < 25 || _Pos_souri.y < 25 || _Pos_souri.x > CreateMap.Instance._Cols +26 || _Pos_souri.y > CreateMap.Instance._Rows +26)
+            if (_Pos_souri.x < 25 || _Pos_souri.y < 25 || _Pos_souri.x > GestionMap.Instance._Cols +26 || _Pos_souri.y > GestionMap.Instance._Rows +26)
             {
                 Debug.Log("out of range");
             }
@@ -31,29 +31,29 @@ public class Input : MonoBehaviour
             {
                 if (_exClick != null)
                 {
-                    if (_exClick != CreateMap.Instance._Grid[(int)_Pos_souri.x, (int)_Pos_souri.y])
+                    if (_exClick != GestionMap.Instance._Grid[(int)_Pos_souri.x, (int)_Pos_souri.y])
                     {
-                        if (CreateMap.Instance._Grid[(int)_Pos_souri.x, (int)_Pos_souri.y].GetComponent<SpriteRenderer>().color == Color.white)
+                        if (GestionMap.Instance._Grid[(int)_Pos_souri.x, (int)_Pos_souri.y].GetComponent<SpriteRenderer>().color == Color.white)
                         {
-                            CreateMap.Instance._Grid[(int)_Pos_souri.x, (int)_Pos_souri.y].GetComponent<SpriteRenderer>().color = Color.black;
+                            GestionMap.Instance._Grid[(int)_Pos_souri.x, (int)_Pos_souri.y].GetComponent<SpriteRenderer>().color = Color.black;
                         }
                         else
                         {
-                            CreateMap.Instance._Grid[(int)_Pos_souri.x, (int)_Pos_souri.y].GetComponent<SpriteRenderer>().color = Color.white;
+                            GestionMap.Instance._Grid[(int)_Pos_souri.x, (int)_Pos_souri.y].GetComponent<SpriteRenderer>().color = Color.white;
                         }
-                        _exClick = CreateMap.Instance._Grid[(int)_Pos_souri.x, (int)_Pos_souri.y];
+                        _exClick = GestionMap.Instance._Grid[(int)_Pos_souri.x, (int)_Pos_souri.y];
                     }
                 }
                 else
                 {
-                    _exClick = CreateMap.Instance._Grid[(int)_Pos_souri.x, (int)_Pos_souri.y];
-                    if (CreateMap.Instance._Grid[(int)_Pos_souri.x, (int)_Pos_souri.y].GetComponent<SpriteRenderer>().color == Color.white)
+                    _exClick = GestionMap.Instance._Grid[(int)_Pos_souri.x, (int)_Pos_souri.y];
+                    if (GestionMap.Instance._Grid[(int)_Pos_souri.x, (int)_Pos_souri.y].GetComponent<SpriteRenderer>().color == Color.white)
                     {
-                        CreateMap.Instance._Grid[(int)_Pos_souri.x, (int)_Pos_souri.y].GetComponent<SpriteRenderer>().color = Color.black;
+                        GestionMap.Instance._Grid[(int)_Pos_souri.x, (int)_Pos_souri.y].GetComponent<SpriteRenderer>().color = Color.black;
                     }
                     else
                     {
-                        CreateMap.Instance._Grid[(int)_Pos_souri.x, (int)_Pos_souri.y].GetComponent<SpriteRenderer>().color = Color.white;
+                        GestionMap.Instance._Grid[(int)_Pos_souri.x, (int)_Pos_souri.y].GetComponent<SpriteRenderer>().color = Color.white;
                     }
                 }
             }
