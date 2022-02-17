@@ -10,6 +10,8 @@ public class GestionCellule : MonoBehaviour
     public bool[,] _CelluleTemp;
     [SerializeField] private int vitesse = 30;
 
+    public GameObject img_btn;
+
 
     public bool start = false;
     // Start is called before the first frame update
@@ -152,10 +154,12 @@ public class GestionCellule : MonoBehaviour
     public void RunGame()
     {
         start = true;
+        img_btn.GetComponent<Image>().color = Color.green;
     }
 
     public void StopGame()
     {
         start = false;
+        img_btn.GetComponent<Image>().color = new Color32(0, 60, 0, 255);
     }
 }
