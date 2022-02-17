@@ -5,3 +5,8 @@ test25
 test_live
 test_save
 test_save2
+jeu cassé
+1
+1
+1
+1

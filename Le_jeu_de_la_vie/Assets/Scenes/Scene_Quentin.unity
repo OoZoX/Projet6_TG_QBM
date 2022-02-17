@@ -1216,7 +1216,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3.574829, y: -184.00024}
+  m_AnchoredPosition: {x: 3.574829, y: -202.4}
   m_SizeDelta: {x: 277.9942, y: 36.8723}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &576945455
@@ -1868,7 +1868,7 @@ GameObject:
   - component: {fileID: 877453736}
   - component: {fileID: 877453735}
   m_Layer: 5
-  m_Name: Bordure
+  m_Name: MiroireTxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1913,7 +1913,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Bordure
+  m_text: 'Miroire
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2371,7 +2373,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4.998026, y: 165.034}
+  m_AnchoredPosition: {x: -4.998026, y: 135.00024}
   m_SizeDelta: {x: 278.15, y: 146.8843}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1095173951
@@ -2713,7 +2715,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4.9971313, y: -78.96625}
+  m_AnchoredPosition: {x: -4.9971313, y: -109}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1241848174
@@ -2946,7 +2948,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 62.43451
+  orthographic size: 58.949135
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2970,7 +2972,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1342970212}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 62, y: 72.8, z: -10}
+  m_LocalPosition: {x: 62, y: 69.4, z: -10}
   m_LocalScale: {x: 5, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3846,7 +3848,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5, y: 30}
+  m_AnchoredPosition: {x: -5, y: -0.03375244}
   m_SizeDelta: {x: 278.154, y: 123.184}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1926100767
@@ -4525,7 +4527,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0048828125, y: -246.60025}
+  m_AnchoredPosition: {x: 0.0048828125, y: -265}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2045918029

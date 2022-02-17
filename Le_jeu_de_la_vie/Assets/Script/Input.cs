@@ -23,6 +23,7 @@ public class Input : MonoBehaviour
         if (UnityEngine.Input.GetMouseButton(0))
         {
             _Pos_souri = camera.ScreenToWorldPoint(UnityEngine.Input.mousePosition);
+            Debug.Log($"<color=yellow>" + _Pos_souri.x + "</color> <color=blue>" + _Pos_souri.y + "</color>");
             if (_Pos_souri.x < 25 || _Pos_souri.y < 25 || _Pos_souri.x > GestionMap.Instance._Cols +26 || _Pos_souri.y > GestionMap.Instance._Rows +26)
             {
                 Debug.Log("out of range");
