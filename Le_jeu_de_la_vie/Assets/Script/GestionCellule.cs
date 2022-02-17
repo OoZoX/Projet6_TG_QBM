@@ -1,21 +1,29 @@
 using UnityEngine;
 using System.IO;
 using UnityEngine.UI;
+using TMPro;
 
 public class GestionCellule : MonoBehaviour
 {
     private int _ColX;
     private int _ColY;
     private int _Compt_cellule;
+
+
     public bool[,] _CelluleTemp;
+
     [SerializeField] private int vitesse = 30;
+
+    public int compt_simulation = 0;
 
     public GameObject img_btn_play;
     public GameObject btn_bordure_infini;
+    public TextMeshProUGUI textCompteur;
 
 
     public bool start = false;
     public bool map_infini = true;
+    public bool one_updtate = false;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +38,15 @@ public class GestionCellule : MonoBehaviour
     {
         if (start == true)
         {
+            if (one_updtate == true)
+            {
+                start = false;
+                one_updtate = false;
+            }
+            compt_simulation++;
+            textCompteur.GetComponent<TextMeshProUGUI>().text = compt_simulation.ToString();
+
+
             Application.targetFrameRate = vitesse;
 
             CheckVoisinInfini();
@@ -69,6 +86,11 @@ public class GestionCellule : MonoBehaviour
         img_btn_play.GetComponent<Image>().color = new Color32(0, 60, 0, 255);
     }
 
+    public void OneUpdate()
+    {
+        one_updtate = true;
+        start = true;
+    }
     public void IfiniBordureBtn()
     {
         if (map_infini == false)
